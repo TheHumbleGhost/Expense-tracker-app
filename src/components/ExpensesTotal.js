@@ -6,19 +6,16 @@ import selectExpenses from "../selectors/expenses";
 const ExpensesTotal =  (props) => {
     const result = () => {
         if(props.expenses.length !== 0) {
-            console.log("if");
             // props.expenses.reduce((total = 0, expense) => {
             //     console.log(total + expense.amount);
             //     return total + expense.amount;
             // })
             let total = 0;
             for( let i = 0;i<props.expenses.length;i++) {
-                console.log("is this loop running?")
                 total = total + props.expenses[i].amount;
             }
             return numeral(total/100).format('$0,0.00');
         } else {
-            console.log("else runned");
             return '$ 0';
         }
     };
