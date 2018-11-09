@@ -73,33 +73,38 @@ export default class ExpenseForm extends React.Component {
 
     render () {
         return (
-            <div>
-                {this.state.error && <p>Please enter description and amount</p>}
-                <form onSubmit={this.onSubmit}>
-                    <input 
-                        type="text"
-                        placeholder="Description"
-                        value={this.state.description}
-                        onChange={this.onDescriptionChange}
-                    />
-                    <input 
-                        type="text"
-                        value={this.state.amount}
-                        onChange={this.onAmountChange}
-                    />
-                    <DatePicker 
-                        selected={this.state.createdAt}
-                        onChange={this.onDateChange}
-                    />
-                    <textarea
-                        placeholder="Add a note for the expense" 
-                        value = {this.state.note}
-                        onChange={this.onNoteChange}
-                    >
-                    </textarea>
-                    <button>Add a new expense</button>
-                </form>
-            </div>
+            <form className="form" onSubmit={this.onSubmit}>
+            {this.state.error && <p className="form-error">Please enter description and amount</p>}
+                <input 
+                    type="text"
+                    className="text-input"
+                    placeholder="Description"
+                    value={this.state.description}
+                    onChange={this.onDescriptionChange}
+                />
+                <input 
+                    type="text"
+                    className="text-input"
+                    placeholder="Amount for the expense"
+                    value={this.state.amount}
+                    onChange={this.onAmountChange}
+                />
+                <DatePicker
+                    className="text-input width-100"
+                    selected={this.state.createdAt}
+                    onChange={this.onDateChange}
+                />
+                <textarea
+                    className="textarea"
+                    placeholder="Add a note for the expense" 
+                    value = {this.state.note}
+                    onChange={this.onNoteChange}
+                >
+                </textarea>
+                <div>
+                    <button className="button">Save expense</button>
+                </div>
+            </form>
         );
     }
 }
